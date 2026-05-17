@@ -22,7 +22,7 @@ def search_buildings(rsu, building_name):
     cursor = conn.cursor()
     query = (
         "SELECT building_name, building_type, locality, total_units,"
-        " airtel_postpaid_users, airtel_wifi_users, airtel_bundle_users,"
+        " airtel_postpaid_users, airtel_wifi_users, airtel_oap_users,"
         " similarity(building_name, %s) AS sim_score"
         " FROM buildings"
         " WHERE area_code = %s"
