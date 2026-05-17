@@ -45,6 +45,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print("Message received: " + update.message.text)
     text = update.message.text.strip()
     parts = text.split(" ", 1)
 
