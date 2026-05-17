@@ -84,7 +84,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         wifi = row[6]
         oap = row[7]
         print("Values: " + str(total) + " " + str(postpaid) + " " + str(prepaid) + " " + str(wifi) + " " + str(oap))
-
+        print("fmt test: " + fmt(postpaid, total))
         def fmt(val, total):
          if val and total > 0:
            return str(val) + "/" + str(total) + " (" + str(round(val/total*100)) + "%)"
