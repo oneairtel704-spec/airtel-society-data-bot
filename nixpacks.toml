@@ -1,5 +1,5 @@
 [phases.setup]
 nixPkgs = ["python310", "libpq"]
 
-[phases.install]
-cmds = ["pip install psycopg2-binary"]
+[variables]
+PYTHON_VERSION - "3.10"
