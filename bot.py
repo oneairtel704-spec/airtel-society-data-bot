@@ -22,16 +22,13 @@ def search_buildings(rsu, building_name):
     cursor = conn.cursor()
     query = (
         "SELECT building_name, building_type, locality, total_units,"
-        " airtel_postpaid_users, airtel_wifi_users, airtel_oap_users,"
-        " similarity(building_name, %s) AS sim_score"
+        " airtel_postpaid_users, airtel_wifi_users, airtel_oap_users"
         " FROM buildings"
         " WHERE area_code = %s"
-        " AND (building_name ILIKE %s"
-        " OR similarity(building_name, %s) > 0.15)"
-        " ORDER BY sim_score DESC"
+        " AND building_name ILIKE %s"
         " LIMIT 5"
     )
-    cursor.execute(query, (building_name, rsu.upper(), f"%{building_name}%", building_name))
+    cursor.execute(query, (rsu.upper(), f"%{building_name}%"))
     results = cursor.fetchall()
     cursor.close()
     conn.close()
