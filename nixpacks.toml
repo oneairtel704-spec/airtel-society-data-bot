@@ -1,2 +1,5 @@
 [phases.setup]
-nixPkgs = ["postgresql"]
+nixPkgs = ["libpq"]
+
+[phases.install]
+cmds = ["pip install psycopg2-binary"]
