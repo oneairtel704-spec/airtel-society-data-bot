@@ -65,6 +65,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("Results: " + str(len(results)))
 
     if not results:
+        print("No results found")
         await update.message.reply_text(
             "No buildings found for " + building_name + " in RSU " + rsu + ".\n\n"
             "Tips:\n"
@@ -73,6 +74,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "Try just one word"
         )
         return
+
+    print("Building row: " + str(results[0]))    
     if len(results) == 1:
         row = results[0]
         total = row[3] if row[3] else 0
