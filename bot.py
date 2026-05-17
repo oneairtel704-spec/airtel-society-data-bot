@@ -105,7 +105,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
           "Opportunity: " + str(opportunity) + " flats not yet on Airtel postpaid"
        )
 
+        print("about to send message")
         await update.message.reply_text(msg)
+        print("message sent")
     else:
         response = "Found " + str(len(results)) + " matches in RSU " + rsu + ":\n\n"
         for i, row in enumerate(results, 1):
