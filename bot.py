@@ -83,6 +83,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         prepaid = row[5]
         wifi = row[6]
         oap = row[7]
+        print("Values: " + str(total) + " " + str(postpaid) + " " + str(prepaid + " " + str(wifi) + " " + str(oap)))
 
         def fmt(val, total):
          if val and total > 0:
