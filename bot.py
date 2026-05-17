@@ -48,6 +48,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("Message received: " + update.message.text)
     text = update.message.text.strip()
     parts = text.split(" ", 1)
+    print("Parts: " + str(parts))
 
     if len(parts) < 2:
         await update.message.reply_text(
@@ -59,7 +60,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     rsu = parts[0].upper()
     building_name = parts[1]
+    print("Searching: " + rsu + " - " + building_name)
     results = search_buildings(rsu, building_name)
+    print("Results: " + str(len(results)))
 
     if not results:
         await update.message.reply_text(
