@@ -77,37 +77,40 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     print("Building row: " + str(results[0]))    
     if len(results) == 1:
-        row = results[0]
-        total = row[3] if row[3] else 0
-        postpaid = row[4]
-        prepaid = row[5]
-        wifi = row[6]
-        oap = row[7]
-        print("Values: " + str(total) + " " + str(postpaid) + " " + str(prepaid) + " " + str(wifi) + " " + str(oap))
-        print("fmt test: " + fmt(postpaid, total))
-        def fmt(val, total):
-         if val and total > 0:
-           return str(val) + "/" + str(total) + " (" + str(round(val/total*100)) + "%)"
-        return "N/A"
+          row = results[0]
+          name = str(row[0])
+          btype = str(row[1])
+          loc = str(row[2])
+          total = int(row[3]) if row[3] else 0
+          postpaid = int(row[4]) if row[4] else 0
+          prepaid = int(row[5]) if row[5] else 0
+          wifi = int(row[6]) if row[6] else 0
+          oap = int(row[7]) if row[7] else 0
+          opportunity = total - postpaid
 
-        opportunity = (total - postpaid) if postpaid else total
+          def pct(val, tot):
+            if val and tot:
+              return str(val) + "/" + str(tot) + " (" + str(round(val*100/tot)) + "%)"
+            return "N/A"
 
-        msg = (
-          "Building: " + str(row[0]) + "\n"
-          "Type: " + str(row[1]) + "\n"
-          "Location: " + str(row[2]) + " [" + rsu + "]\n\n"
-          "Total Flats: " + str(total) + "\n\n"
-          "Airtel Penetration:\n"
-          "Postpaid: " + fmt(postpaid, total) + "\n"
-          "Prepaid: " + fmt(prepaid, total) + "\n"
-          "WiFi: " + fmt(wifi, total) + "\n"
-          "OAP: " + fmt(oap, total) + "\n\n"
-          "Opportunity: " + str(opportunity) + " flats not yet on Airtel postpaid"
-       )
-
-        print("about to send message")
-        await update.message.reply_text(msg)
-        print("message sent")
+          lines = []
+          lines.append("Building: " + name)
+          lines.append("Type: " + btype)
+          lines.append("Location: " + loc + " [" + rsu + "]")
+          lines.append("")
+          lines.append("Total Flats: " + str(total))
+          lines.append("")
+          lines.append("Airtel Penetration:")
+          lines.append("Postpaid: " + pct(postpaid, total))
+          lines.append("Prepaid: " + pct(prepaid, total))
+          lines.append("WiFi: " + pct(wifi, total))
+          lines.append("OAP: " + pct(oap, total))
+          lines.append("")
+          lines.append("Opportunity: " + str(opportunity) + " flats not yet on Airtel postpaid")
+          msg = "\n".join(lines)
+          print("Sending message now")
+          await update.message.reply_text(msg)
+          print("Done")
     else:
         response = "Found " + str(len(results)) + " matches in RSU " + rsu + ":\n\n"
         for i, row in enumerate(results, 1):
