@@ -12,10 +12,9 @@ nest_asyncio.apply()
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-os.getenv("BOT_TOKEN"):
 
-  authenticated_agents = {}
-  SESSION_DURATION = 12*60*60
+authenticated_agents = {}
+SESSION_DURATION = 12*60*60
 
 
 def get_db_connection():
