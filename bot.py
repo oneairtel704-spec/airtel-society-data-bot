@@ -22,7 +22,7 @@ def get_db_connection():
     return conn
 
 def verify_olm_id(olm_id):
-    if not re.matc(r'^A\d{7}$', olm_id):
+    if not re.match(r'^A\d{7}$', olm_id):
         return None
     conn = get_db_connection()
     cursor = get_db_connection()
