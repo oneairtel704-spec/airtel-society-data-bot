@@ -103,7 +103,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("Message received: " + update.message.text)
-    user_id = update.message.from.user_id
+    user_id = update.message.from_user.id
     text = update.message.text.strip()
     
     if not is_authenticated(user_id):
