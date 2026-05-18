@@ -64,7 +64,7 @@ def search_buildings(rsu, building_name):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("Start command received")
     user_id = update.message.from_user.id 
-    if is_authenticated(user_id)
+    if is_authenticated(user_id):
        name = authenticated_agents[user_id]["name"]
        await update.message.reply_text(
         "Welcome back" + name +  "!\n\n"
