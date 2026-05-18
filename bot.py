@@ -75,9 +75,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
        )
     else:
         await update.message.reply_text(
-            "Welcome to the Airtel Society Data Bot!\n\n"
+            "Welcome to the Airtel Society Data Bot \n\n"
             "Please enter your OLM ID to continue.\n\n"
-            Example: A1234567
+            "Example: A1234567"
         )   
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
