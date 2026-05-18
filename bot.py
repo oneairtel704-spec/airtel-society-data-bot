@@ -115,7 +115,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "name": name,
                 "timestamp": time.time()
             }
-            await.update.message.reply_text(
+            await update.message.reply_text(
                 "Welcome " + name + "! You are now logged in. \n\n"
                 "To search, type:\n"
                 "RSU CODE followed by BUILDING NAME\n\n"
