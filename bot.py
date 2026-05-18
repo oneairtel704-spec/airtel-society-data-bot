@@ -49,7 +49,7 @@ def search_buildings(rsu, building_name):
     cursor = conn.cursor()
     query = (
         "SELECT building_name, building_type, locality, total_units,"
-        " airtel_postpaid_users, airtel_prepaid_users, airtel_wifi_users, airtel_oap_users"
+        " airtel_postpaid_users, airtel_prepaid_users, airtel_wifi_users, airtel_oap_users,"
         " competition_users"
         " FROM buildings"
         " WHERE rsu = %s"
