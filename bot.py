@@ -12,10 +12,10 @@ from datetime import datetime
 # 1. CONFIG
 # ==========================================
 
-import os
-from dotenv import load_dotenv
-load_dotenv()
-TOKEN = os.getenv("BOT_TOKEN")
+
+TOKEN = os.environ.get("BOT_TOKEN")
+bot = telebot.Telebot(TOKEN)
+
 SESSION_DURATION = 12 * 60 * 60  # 12 hours
 
 GITHUB_RAW = "https://raw.githubusercontent.com/oneairtel704-spec/airtel-society-data-bot/main"
