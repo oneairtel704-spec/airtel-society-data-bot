@@ -14,7 +14,7 @@ from datetime import datetime
 
 
 TOKEN = os.environ.get("BOT_TOKEN")
-bot = telebot.Telebot(TOKEN)
+bot = telebot.TeleBot(TOKEN)
 
 SESSION_DURATION = 12 * 60 * 60  # 12 hours
 
