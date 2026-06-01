@@ -15,7 +15,7 @@ from datetime import datetime
 import os
 from dotenv import load_dotenv
 load_dotenv()
-TOKEN = OS.GETENV("BOT_TOKEN")
+TOKEN = os.getenv("BOT_TOKEN")
 SESSION_DURATION = 12 * 60 * 60  # 12 hours
 
 GITHUB_RAW = "https://raw.githubusercontent.com/oneairtel704-spec//main"
