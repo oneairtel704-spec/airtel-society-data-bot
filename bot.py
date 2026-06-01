@@ -18,7 +18,7 @@ load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
 SESSION_DURATION = 12 * 60 * 60  # 12 hours
 
-GITHUB_RAW = "https://raw.githubusercontent.com/oneairtel704-spec//main"
+GITHUB_RAW = "https://raw.githubusercontent.com/oneairtel704-spec/airtel-society-data-bot/main"
 AGENTS_URL  = f"{GITHUB_RAW}/agents.csv"
 SOCIETY_URL = f"{GITHUB_RAW}/buildings_society.csv"
 RFS_URL     = f"{GITHUB_RAW}/buildings_rfs.csv"
