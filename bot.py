@@ -784,5 +784,8 @@ def fallback(message):
 # ==========================================
 
 print("🚀 Unified Airtel Field Bot is online!")
-bot.polling(none_stop=True)
+import telebot
+telebot.apihelper.SESSION_TIME_TO_LIVE = 5 * 60
+bot.infinity_polling(timeout=10, long_polling_timeout=5)
+
 
