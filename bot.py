@@ -44,7 +44,7 @@ df_rfs     = load_csv(RFS_URL,     "buildings_rfs.csv")
 AGENT_MAP = {}
 if not df_agents.empty:
     for _, row in df_agents.iterrows():
-        AGENT_MAP[str(row['OLM_ID']).strip().upper()] = str(row['name']).strip()
+        AGENT_MAP[str(row['olm_id']).strip().upper()] = str(row['name']).strip()
 print(f"🔒 {len(AGENT_MAP)} agents loaded.")
 
 # Add row index to RFS data for callback lookups
